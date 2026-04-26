@@ -1,0 +1,11 @@
+runtime: python39
+instance_class: F1
+
+entrypoint: gunicorn -b :$PORT "flaskr:create_app()"
+
+env_variables:
+  DATABASE_URL: "postgresql://your_db_user:eazye5000@YOUR_VM_EXTERNAL_IP:5432/trivia"
+
+handlers:
+- url: /.*
+  script: auto
